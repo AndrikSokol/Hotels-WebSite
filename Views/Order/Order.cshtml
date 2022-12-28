@@ -1,0 +1,82 @@
+﻿@model WebApplication1.Models.OrderViewModel
+
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Order</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Order">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                    <label asp-for="User_ID" class="control-label"></label>
+                    <input asp-for="User_ID" class="form-control" />
+                    <span asp-validation-for="User_ID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Hotel_ID" class="control-label"></label>
+                    <input asp-for="Hotel_ID" class="form-control" />
+                    <span asp-validation-for="Hotel_ID" class="text-danger"></span>
+                </div>*@
+            @*<div class="form-group">
+                    <label asp-for="Booking_date" class="control-label"></label>
+                    <input asp-for="Booking_date" class="form-control" />
+                    <span asp-validation-for="Booking_date" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label asp-for="Number_of_beds" class="control-label"></label>
+                <input asp-for="Number_of_beds" class="form-control" />
+                <span asp-validation-for="Number_of_beds" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Apartament_class" class="control-label"></label>
+                <input asp-for="Apartament_class" class="form-control" />
+                <span asp-validation-for="Apartament_class" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Apartament_class" class="control-label" for="language">Select a class:</label>
+                <select asp-for="Apartament_class" name="Apartament_class" id="language">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="Lux">Lux</option>
+                </select>
+                <span asp-validation-for="Apartament_class" class="text-danger"></span>
+            @*<input asp-for="Apartament_class" class="form-control" />*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Arrival_time" class="control-label"></label>
+                <input type="datetime-local" asp-for="Arrival_time" class="form-control" />
+                <span asp-validation-for="Arrival_time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Days" class="control-label"></label>
+                <input asp-for="Days" class="form-control" />
+                <span asp-validation-for="Days" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="Status_ID" class="control-label"></label>
+                    <input asp-for="Status_ID" class="form-control" />
+                    <span asp-validation-for="Status_ID" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <input type="submit" value="Order" class="btn btn-primary" />
+            </div>
+        </form>
+        <div>
+            <a asp-action="Index" asp-controller="Home">Back </a>
+        </div>
+    </div>
+    <div class="hotel_column">
+        <img class="thumbnail1" src="@OrderViewModel.ImagePath" />
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,88 @@
+﻿@*@{
+        ViewData["Title"] = "Home Page";
+    }
+
+    <div class="text-center">
+            <div class="Willing">
+                <div class="Willing_text">
+                    Willing hotel
+                </div>
+                <div class="Willing_picture">
+                    <img id="Willing_pic" src="~/img/Willing_hotel/Willing hotel.jpeg">
+                </div>
+                <div class="btn_conteiner">
+                    <button class="order_btn">Order</button>
+                </div>
+            </div>
+        </div>*@
+
+
+
+
+
+@*@using Microsoft.AspNetCore.Http
+    @inject IHttpContextAccessor Accessor
+    @model System.Data.DataTable
+
+    @{
+        ViewData["Title"] = "Hotel";
+    }
+
+    <section class="hotel-grid">
+        @for (int i = 0; i < Model.Rows.Count; i++)
+        {
+            string path = @"../../wwwroot" + @Model.Rows[i]["ImagePath"];
+            <div class="cards-container">
+                <a href="#" class="card">
+                    <div class="card_background" style="background-image:url(@path)"></div>
+                    <div class="card-content">
+                        <p>@Model.Rows[i]["Hotel_Name"]</p>
+                    </div>
+                </a>
+            </div>
+        }
+
+    </section>*@
+
+
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+@model System.Data.DataTable
+
+@{
+    ViewData["Title"] = "Hotel";
+}
+
+<section class="hotel-grid">
+    @for (int i = 0; i < Model.Rows.Count; i++)
+    {
+        <div class="hotel-preview">
+            <div class="hotels-row">
+                <img class="thumbnail" style="width:240px; height:240px" src="@Model.Rows[i]["ImagePath"]" />
+            </div>
+            <div class="hotel-info-grid">
+                <div class="hotel-info">
+                    <p class="hotel-title">
+                        @Model.Rows[i]["Hotel_Name"]
+                    </p>
+                    <p class="hotel-adress">
+                        @Model.Rows[i]["Adress"]
+                    </p>
+
+                    <p class="hotel-phone">
+                        @Model.Rows[i]["Phone"]
+                    </p>
+                    @if (@Accessor.HttpContext.Session.GetString("Role_Name") == "User")
+                    {
+                        <a class="order_btn" asp-action ="Order" asp-controller="Order" asp-route-idHotel="@Model.Rows[i]["Hotel_ID"]" asp-route-idImagePath="@Model.Rows[i]["ImagePath"]">Order</a>
+                    }
+                    else if (@Accessor.HttpContext.Session.GetString("Role_Name") == "Admin")
+                    {
+                    }
+
+                </div>
+            </div>
+        </div>
+    }
+</section>

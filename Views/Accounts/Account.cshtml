@@ -1,0 +1,156 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+@model System.Data.DataTable
+@{
+    ViewData["Title"] = "Account";
+}
+
+<div>
+    <div>
+        <h1>Account</h1>
+        <div>
+            <h4>@Accessor.HttpContext.Session.GetString("UserName")</h4>
+            <P>Name: @Accessor.HttpContext.Session.GetString("Name") </P>
+            <P>Email: @Accessor.HttpContext.Session.GetString("Email")</P>
+            <P>Role_ID: @Accessor.HttpContext.Session.GetString("Role_ID")</P>
+            <P>Role_Name: @Accessor.HttpContext.Session.GetString("Role_Name")</P>
+
+        </div>
+        <div>
+            <a asp-controller="Home" asp-action="Index">Back to Hotels</a>
+        </div>
+    </div>
+    @if (@Accessor.HttpContext.Session.Keys.Contains("User_ID") && Accessor.HttpContext.Session.GetString("Role_Name") == "User")
+    {
+        @*<div>
+                <table class="table table-bordered">
+                    <thead class=" = thread-light">
+                        <tr>
+                            <th>
+                                Hotel name
+                            </th>
+                            <th>
+                                Booking date
+                            </th>
+                            <th>
+                                Number of beds
+                            </th>
+                            <th>
+                                Class
+                            </th>
+                            <th>
+                                Arrival_time
+                            </th>
+                            <th>
+                                Day
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Rows.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@UserViewModel.ImagePath[i]" style="width:6vw" />
+                                </td>
+                                <td>
+                                    @Model.Rows[i]["Booking_date"]
+                                </td>
+                                <td>
+                                    @Model.Rows[i]["Number_of_beds"]
+                                </td>
+                                <td>
+                                    @Model.Rows[i]["Apartament_class"]
+                                </td>
+
+                                <td>
+                                    @Model.Rows[i]["Arrival_time"]
+                                </td>
+                                <td>
+                                    @Model.Rows[i]["Days"]
+                                </td>
+                                <td>
+                                    @Model.Rows[i]["Status_name"]
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>*@
+        <div>
+            <table class="table table-bordered">
+                <thead class="thread-light">
+                    <tr>
+                        <th>
+                            Hotel name
+                        </th>
+                        <th>
+                            Room
+                        </th>
+                        <th>
+                            Number of beds
+                        </th>
+                        <th>
+                            Class
+                        </th>
+                        <th>
+                            Arrival_time
+                        </th>
+                        <th>
+                            Days
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Bill
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Rows.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@UserViewModel.ImagePath[i]" style="width:6vw" />
+                            </td>
+                            <td>
+                                @Model.Rows[i]["Room"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["Amount_beds"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["Class"]
+                            </td>
+
+                            <td>
+                                @Model.Rows[i]["Arrival_time"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["Days"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["Status_name"]
+                            </td>
+                            <td>
+                                @Model.Rows[i]["Bill"]
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+</div>
+@section scripts{
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+}

@@ -1,0 +1,93 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewData["Title"] = "List of Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class=" jumbotron ">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+</div>
+
+
+<table class="table table-bordered">
+    <thead class=" = thread-light">
+        <tr>
+            <th>
+                Order_ID
+            </th>
+            <th>
+                User_ID
+            </th>
+            <th>
+                Hotel
+            </th>
+            <th>
+                Booking date
+            </th>
+            <th>
+                Number of beds
+            </th>
+            <th>
+                Apartment class
+            </th>
+            <th>
+                Arrival time
+            </th>
+            <th>
+                Days
+            </th>
+            <th>
+                Status name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@for (int i =0; i <Model.Rows.Count;i++) {
+        <tr>
+            <td>
+                @Model.Rows[i]["Order_ID"]
+            </td>
+            <td>
+                @Model.Rows[i]["User_ID"]
+            </td>
+            <td>
+                <img src="@UserViewModel.ImagePath[i]" style="width:6vw" />
+            </td>
+            <td>
+                @Model.Rows[i]["Booking_date"]
+            </td>
+            <td>
+                @Model.Rows[i]["Number_of_beds"]
+            </td>
+            <td>
+                @Model.Rows[i]["Apartament_class"]
+            </td>
+            <td>
+                @Model.Rows[i]["Arrival_time"]
+            </td>
+            <td>
+                @Model.Rows[i]["Days"]
+            </td>
+            <td>
+                @Model.Rows[i]["Status_name"]
+            </td>
+            <td>
+                @if (Model.Rows[i]["Status_name"].ToString() == "Waiting")
+                {
+                    <a asp-action="searchApartments" asp-controller="Apartment" asp-route-id=@i>Search apartment</a>
+                }
+            </td>
+            @*@if (Model.Rows[i]["Status_name"].ToString() == "Waiting")
+            {
+                
+            <td>
+                <a asp-action="Orders" asp-controller="Order" asp-route-idOrder="@Model.Rows[i]["Order_ID"]" asp-route-idStatus=1 >Accept</a> |
+                <a asp-action="Orders" asp-controller="Order" asp-route-idOrder="@Model.Rows[i]["Order_ID"]" asp-route-idStatus=0 >Reject</a>
+            </td>
+            }*@
+
+        </tr>
+}
+    </tbody>
+</table>

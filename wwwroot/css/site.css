@@ -1,0 +1,156 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.nav{
+    background-color:black;
+}
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+  color:white;
+  background-color:black;
+  
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: white;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: white;
+    background-color: black;
+    border-color: black;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+    color: white;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid black;
+}
+.border-bottom {
+  border-bottom: 1px solid black;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+
+}
+
+.container {
+    background-color: black;
+    color:white;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: black;
+    color: white;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: black;
+}
+
+/*.Willing {
+    margin:30px;
+    padding: 0px;
+    width: 330px;
+    background-color: white;
+    border-radius: 30px 20px 10px 5px;
+    box-shadow: rgb(36 35 35) 7px 7px 8px;
+}
+
+
+.Willing_text {
+    height: 30px;
+    display: block;
+    margin: 5px;
+    font-size: 25px;
+    font-family: "Impact";
+}
+
+.Willing_picture{
+    display: block;
+    transition:2s;
+    color:green;
+    height:70%;
+}
+.Willing_picture:hover{
+    opacity:0.2;
+
+}
+#Willing_pic {
+    width: 100%;
+    border-radius: 0px 0px 0px 0px;
+}
+.Willing_btn{
+    display:block;
+}*/
+.header_container_for_picture {
+    border-radius: 5px;
+}
+.Header_picture {
+    width: 50px;
+}
+
+/*.btn_conteiner{
+    
+}*/
+.order_btn {
+    margin: 8px;
+    padding: 5px;
+    font-size: 16px;
+    font-family: Arial;
+    color: black;
+    background-color: peachpuff;
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    transition: 0.2s;
+    box-shadow: rgb(173 173 173) 3px 3px 3px;
+}
+.order_btn:hover {
+    background-color: rgb(99 8 165);
+}
+.order_btn:active {
+    opacity: 0.8;
+    box-shadow: none;
+}
+.order_btn:focus {
+    outline: none;
+}
+

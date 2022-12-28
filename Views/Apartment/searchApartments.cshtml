@@ -1,0 +1,61 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewData["Title"] = "List of Apartments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class=" jumbotron ">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Hotel_ID
+            </th>
+            <th>
+                Class
+            </th>
+            <th>
+                Room
+            </th>
+            <th>
+                Amount_beds
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Rows.Count; i++)
+        {
+        <tr>
+            <td>
+                @Model.Rows[i]["Hotel_ID"]
+            </td>
+            <td>
+                @Model.Rows[i]["Class"]
+            </td>
+            <td>
+                @Model.Rows[i]["Room"]
+            </td>
+            <td>
+                @Model.Rows[i]["Amount_beds"]
+            </td>
+            <td>
+                @Model.Rows[i]["Price"]
+            </td>
+            <td>
+                <a asp-action="Orders" asp-controller="Order" asp-route-idOrder="@Model.Rows[i]["Order_ID"]" asp-route-idStatus=1 asp-route-idHotel="@Model.Rows[i]["Hotel_ID"]" asp-route-idRoom="@Model.Rows[i]["Room_ID"]" asp-route-Price="@Model.Rows[i]["Price"]" a>Accept</a> |
+                <a asp-action="Orders" asp-controller="Order" asp-route-idOrder="@Model.Rows[i]["Order_ID"]" asp-route-idStatus=0>Reject</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

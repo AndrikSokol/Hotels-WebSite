@@ -1,0 +1,28 @@
+﻿.thumbnail1 {
+    width: 40vw;
+    height: 40vh;
+    display: inline;
+    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0% 80%);
+}
+.hotel_column{
+    margin-left:50px;
+}
+@media (max-width:750px) {
+    .hotel_column {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width:751px) and (max-width:999px) {
+    .hotel_column {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width:1000px) {
+    .hotel_column {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+
