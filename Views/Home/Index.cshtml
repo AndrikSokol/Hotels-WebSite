@@ -73,14 +73,15 @@
                     <p class="hotel-phone">
                         @Model.Rows[i]["Phone"]
                     </p>
-                    @if (@Accessor.HttpContext.Session.GetString("Role_Name") == "User")
+                </div>
+                <div class ="hotel-button">
+                     @if (@Accessor.HttpContext.Session.GetString("Role_Name") == "User")
                     {
                         <a class="order_btn" asp-action ="Order" asp-controller="Order" asp-route-idHotel="@Model.Rows[i]["Hotel_ID"]" asp-route-idImagePath="@Model.Rows[i]["ImagePath"]">Order</a>
                     }
                     else if (@Accessor.HttpContext.Session.GetString("Role_Name") == "Admin")
                     {
                     }
-
                 </div>
             </div>
         </div>

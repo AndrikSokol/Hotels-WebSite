@@ -8,15 +8,13 @@
 <div>
     <div>
         <h1>Account</h1>
-        <div>
             <h4>@Accessor.HttpContext.Session.GetString("UserName")</h4>
             <P>Name: @Accessor.HttpContext.Session.GetString("Name") </P>
             <P>Email: @Accessor.HttpContext.Session.GetString("Email")</P>
-            <P>Role_ID: @Accessor.HttpContext.Session.GetString("Role_ID")</P>
             <P>Role_Name: @Accessor.HttpContext.Session.GetString("Role_Name")</P>
 
         </div>
-        <div>
+        <div class ="btn btn-primary">
             <a asp-controller="Home" asp-action="Index">Back to Hotels</a>
         </div>
     </div>
