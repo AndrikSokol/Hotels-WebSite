@@ -1,5 +1,5 @@
 # Hotels-WebSite
-This is course work for university.I created my first website and had a lot of troble because i knew a few about asp.net core. This project has bad relized because i worked alone and had some plan from my teacher. For myself, I would change a lot of things, but the hotel website is a big project that definitely needs to be created by more than one person.
+This is a course work for the university.I created my first website and had a lot of troble because i knew a few about asp.net core. This project has bad relized because i worked alone and had some plan from my teacher. For myself, I would change a lot of things, but the hotel website is a big project that definitely needs to be created by more than one person.
 Main page
 ![image](https://user-images.githubusercontent.com/110671885/217637483-76eef190-384d-42a2-b42f-3422ba94c080.png)
 
