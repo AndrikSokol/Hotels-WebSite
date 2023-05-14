@@ -6,12 +6,12 @@
 }
 
 <div class=" jumbotron ">
-    <h1 class="text-center">@ViewData["Title"]</h1>
+    <h1 class="text-center text-dark">@ViewData["Title"]</h1>
 </div>
 
 <table class="table table-bordered">
-    <thead>
-        <tr>
+    <thead class="text-muted">
+        <tr class="text-muted">
             <th>
                 Hotel_ID
             </th>
@@ -35,7 +35,7 @@
     <tbody>
         @for (int i = 0; i < Model.Rows.Count; i++)
         {
-        <tr>
+        <tr class="text-muted">
             <td>
                 @Model.Rows[i]["Hotel_ID"]
             </td>

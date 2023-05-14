@@ -137,7 +137,7 @@ namespace WebApplication1.Controllers
             }
             else
             {
-                ViewBag.ErrorMsg = "UserName & Password wrong";
+                ViewBag.ErrorMsg = "UserName or Password wrong";
             }
             return flag;
         }

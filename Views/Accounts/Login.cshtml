@@ -11,11 +11,6 @@
     <div class="col-md-4">
         <form asp-action="login" autocomplete="off">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<div class="form-group">
-                    <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>*@
             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
                 <input asp-for="UserName" class="form-control" />
@@ -32,16 +27,17 @@
         </form>
     </div>
 </div>
-
 <div>
+    <a asp-action="Register">Click for create account</a>
+    <div style="margin-top: -60px;margin-left: 90px;">
     @if (ViewBag.ErrorMsg != null)
     {
         <span class="alert alert-danger">@ViewBag.ErrorMsg</span>
     }
+    </div>
 </div>
-<div>
-    <a asp-action="Register">Click for create account</a>
-</div>
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -39,12 +39,15 @@
 
 <div>
     <a asp-action="Login">Back to log in</a>
+    <div style="margin-top: -60px;margin-left: 90px;">
+        @if (ViewBag.Error != null)
+            {
+                <span class="alert alert-danger">@ViewBag.Error</span>
+            }
+    </div>
 </div>
 
-@if (ViewBag.Error != null)
-{
-    <span class="alert alert-danger">@ViewBag.Error</span>
-}
+
 
 
 @section Scripts {
